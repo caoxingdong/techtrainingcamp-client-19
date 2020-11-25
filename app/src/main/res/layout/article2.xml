@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/article2title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绝对坦率：打造反馈文化"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/article2author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="bytedance 2020年7月7日"
+        android:textSize="12dp" />
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="0dp"
+        android:divider="@color/white"
+        >
+
+    </ListView>
+</LinearLayout>
