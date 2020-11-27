@@ -18,10 +18,6 @@
         </activity>
         <activity android:name=".Login"></activity>
         <activity android:name=".Article0"></activity>
-        <activity android:name=".Article1"></activity>
-        <activity android:name=".Article2"></activity>
-        <activity android:name=".Article3"></activity>
-        <activity android:name=".Article4"></activity>
         <activity android:name=".MainActivity"></activity>
     </application>
 
