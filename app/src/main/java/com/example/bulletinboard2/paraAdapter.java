@@ -40,13 +40,15 @@ public class paraAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         String allText = pList[position];
         View v;
-        if ((allText.length() >= 2 && allText.charAt(0) == '#' && allText.charAt(1) == '#') || (allText.length() >= 3 && allText.charAt(1) == '#' && allText.charAt(2) == '#')) {
+        boolean b1 = (allText.length() >= 2 && allText.charAt(0) == '#' && allText.charAt(1) == '#');
+        boolean b2 = (allText.length() >= 3 && allText.charAt(1) == '#' && allText.charAt(2) == '#');
+        if (b1 || b2) {
             v = View.inflate(mContext, R.layout.two_hashtag, null);
             TextView two_hashtag = v.findViewById(R.id.two_hashtag);
-            if ((allText.length() >= 2 && allText.charAt(0) == '#' && allText.charAt(1) == '#')) {
+            if (b1) {
                 two_hashtag.setText(allText.substring(2));
             }
-            if ((allText.length() >= 3 && allText.charAt(1) == '#' && allText.charAt(2) == '#')) {
+            if (b2) {
                 two_hashtag.setText(allText.substring(3));
             }
         }

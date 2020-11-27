@@ -11,14 +11,14 @@
         android:id="@+id/article0title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="2020字节跳动全球员工摄影大赛邀请函"
+        android:text=""
         android:textSize="20dp" />
 
     <TextView
         android:id="@+id/article0author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="bytedance 2020年10月7日"
+        android:text=""
         android:textSize="12dp" />
 
     <ListView

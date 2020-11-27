@@ -27,13 +27,20 @@ public class Article0 extends AppCompatActivity {
     TextView content;
     paraAdapter adapter;
     ListView lv;
+    TextView tvTitle;
+    TextView tvAuthor;
 
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences preferences = getApplicationContext().getSharedPreferences("MY_APP", Context.MODE_PRIVATE);
         String retrivedToken  = preferences.getString("TOKEN",null);
+        String id  = preferences.getString("id",null);
+        String title  = preferences.getString("title",null);
+        String author  = preferences.getString("author",null);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.article0);
         lv = findViewById(R.id.lv);
+        tvTitle = findViewById(R.id.article0title);
+        tvAuthor = findViewById(R.id.article0author);
         Thread thread = new Thread(new Runnable() {
 
             @Override
@@ -42,7 +49,7 @@ public class Article0 extends AppCompatActivity {
                     OkHttpClient client = new OkHttpClient().newBuilder()
                             .build();
                     Request request = new Request.Builder()
-                            .url("https://vcapi.lvdaqian.cn/article/event_01?markdown=true")
+                            .url("https://vcapi.lvdaqian.cn/article/"+id+"?markdown=true")
                             .method("GET", null)
                             .addHeader("accept", "application/json")
                             .addHeader("Authorization", "Bearer " + retrivedToken)
@@ -51,19 +58,21 @@ public class Article0 extends AppCompatActivity {
                     String res = response.body().string();
                     JSONObject obj = new JSONObject(res);
                     String data = obj.getString("data");
-//                    Log.d("data", (data));
                     String[] strings = data.split("\\n", -1);
-                    strings[10] = "-" + strings[10].substring(3);
-//                    for (int i=0; i<strings.length; i++) {
-//                        System.out.println(i);
-//                        System.out.println("new line: " + strings[i]);
-//                        System.out.println(strings[i].length());
-//                    }
+                    if (id.equals("event_01")) {
+                        strings[10] = "-" + strings[10].substring(3);
+                    }
+                    else if (id.equals("teamBuilding_04")) {
+                        strings[1] = strings[2].substring(0,29);
+                        strings[2] = strings[2].substring(29);
+                    }
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             adapter = new paraAdapter(getApplicationContext(), strings);
                             lv.setAdapter(adapter);
+                            tvAuthor.setText(author);
+                            tvTitle.setText(title);
                         }
                     });
 
