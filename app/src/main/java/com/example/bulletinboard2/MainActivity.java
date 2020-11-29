@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
     ConstraintLayout cover2;
     LinearLayout cover3;
     LinearLayout cover4;
+    Object[] layoutArr;
+    String[] ids;
+    String[] titles;
+    String[] authors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
