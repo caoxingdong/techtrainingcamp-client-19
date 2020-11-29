@@ -21,11 +21,6 @@ public class MainActivity extends AppCompatActivity {
     ConstraintLayout cover2;
     LinearLayout cover3;
     LinearLayout cover4;
-    Object[] layoutArr;
-    String[] ids;
-    String[] titles;
-    String[] authors;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         cover2 = findViewById(R.id.cover2);
         cover3 = findViewById(R.id.cover3);
         cover4 = findViewById(R.id.cover4);
-
 
         cover0.setOnClickListener(new View.OnClickListener()
         {
